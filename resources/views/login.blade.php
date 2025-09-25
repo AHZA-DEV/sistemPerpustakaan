@@ -32,18 +32,44 @@
         <p class="text-slate-600">Silakan masuk untuk melanjutkan</p>
       </div>
       
-      <form class="space-y-6">
+      <form action="{{ route('login.post') }}" method="POST" class="space-y-6">
+        @csrf
+        
+        @if ($errors->any())
+        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+          <ul class="list-disc list-inside text-sm">
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
+        @if (session('success'))
+        <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl">
+          {{ session('success') }}
+        </div>
+        @endif
+
+        @if (session('error'))
+        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+          {{ session('error') }}
+        </div>
+        @endif
+
         <div class="space-y-2">
-          <label class="block text-sm font-semibold text-slate-700">Username</label>
+          <label class="block text-sm font-semibold text-slate-700">Email</label>
           <div class="relative">
-            <input type="text" required placeholder="Masukkan username" class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+            <input type="email" name="email" value="{{ old('email') }}" required placeholder="Masukkan email" class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+            <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
           </div>
         </div>
         
         <div class="space-y-2">
           <label class="block text-sm font-semibold text-slate-700">Password</label>
           <div class="relative">
-            <input id="password" type="password" required placeholder="Masukkan password" class="w-full pl-10 pr-12 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+            <input id="password" name="password" type="password" required placeholder="Masukkan password" class="w-full pl-10 pr-12 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200">
+            <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
             <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 pr-3 flex items-center">
               <i id="toggleIcon" class="fas fa-eye text-slate-400 hover:text-slate-600 transition-colors duration-200"></i>
             </button>
@@ -52,7 +78,7 @@
         
         <div class="flex items-center justify-between">
           <label class="flex items-center">
-            <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded">
+            <input type="checkbox" name="remember" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded">
             <span class="ml-2 text-sm text-slate-600">Ingat saya</span>
           </label>
           <a href="#" class="text-sm text-blue-600 hover:text-blue-800 font-medium">Lupa password?</a>
