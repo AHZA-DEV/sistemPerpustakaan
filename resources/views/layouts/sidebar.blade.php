@@ -50,34 +50,34 @@
                     <span>Pengaturan</span>
                 </a>
             </li>
-
-            <hr class="sidebar-divider">
-
-            <div class="sidebar-header">
-                <div class="d-flex align-items-center">
-                    <i class="bi bi-shield-check text-primary me-2"></i>
-                    <span class="fw-bold">User Panel</span>
-                </div>
-            </div>
-
-            <li class="menu-item active">
-                <a href="index.html" class="menu-link">
-                    <i class="bi bi-house-door"></i>
-                    <span>Beranda</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="books.html" class="menu-link">
-                    <i class="bi bi-book"></i>
-                    <span>Semua Buku</span>
-                </a>
-            </li>
-            <li class="menu-item">
-                <a href="my-loans.html" class="menu-link">
-                    <i class="bi bi-journal-text"></i>
-                    <span>Peminjaman Saya</span>
-                </a>
-            </li>
         </ul>
     </div>
+
+    <hr class="sidebar-divider">
+
+    <div class="sidebar-header">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-shield-check text-primary me-2"></i>
+            <span class="fw-bold">User Panel</span>
+        </div>
+    </div>
+div
+    <li class="menu-item active">
+        <a href="index.html" class="menu-link">
+            <i class="bi bi-house-door"></i>
+            <span>Beranda</span>
+        </a>
+    </li>
+    <li class="menu-item">
+        <a href="books.html" class="menu-link">
+            <i class="bi bi-book"></i>
+            <span>Semua Buku</span>
+        </a>
+    </li>
+    <li class="menu-item">
+        <a href="my-loans.html" class="menu-link">
+            <i class="bi bi-journal-text"></i>
+            <span>Peminjaman Saya</span>
+        </a>
+    </li>
 </nav>
