@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
     <div class="container-fluid">
         <button class="btn btn-link sidebar-toggle me-3" id="sidebarToggle">
@@ -18,22 +19,24 @@
                 <i class="bi bi-sun theme-icon"></i>
             </button>
             
-            <div class="dropdown me-3">
-                <button class="btn btn-link position-relative" data-bs-toggle="dropdown">
+            <div class="position-relative me-3">
+                <button class="btn btn-link position-relative">
                     <i class="bi bi-bell"></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        3
+                        1
+                        <span class="visually-hidden">unread messages</span>
                     </span>
                 </button>
             </div>
             
             <div class="dropdown">
-                <button class="btn btn-link d-flex align-items-center" data-bs-toggle="dropdown">
-                    <img src="https://via.placeholder.com/32x32/007bff/ffffff?text={{ substr(Session::get('user_name', 'U'), 0, 1) }}" alt="Profile" class="rounded-circle me-2" width="32" height="32">
-                    <i class="bi bi-three-dots-vertical"></i>
+                <button class="btn btn-link dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle me-2"></i>
+                    <span>{{ Session::get('user_name') }}</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><h6 class="dropdown-header">{{ Session::get('user_name', 'User') }}</h6></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
