@@ -16,31 +16,31 @@
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.users.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                    <a href="{{ route('admin.users.index') }}" class="menu-link">
                         <i class="bi bi-people"></i>
                         <span>Kelola Anggota</span>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::routeIs('admin.books.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ Request::routeIs('admin.buku.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.buku.index') }}" class="menu-link">
                         <i class="bi bi-book"></i>
                         <span>Kelola Buku</span>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::routeIs('admin.loans.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ Request::routeIs('admin.peminjaman.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.peminjaman.index') }}" class="menu-link">
                         <i class="bi bi-journal-arrow-up"></i>
                         <span>Kelola Peminjaman</span>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::routeIs('admin.categories.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ Request::routeIs('admin.kategori.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.kategori.index') }}" class="menu-link">
                         <i class="bi bi-tags"></i>
                         <span>Kelola Kategori</span>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::routeIs('admin.reports.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ Request::routeIs('admin.laporan.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.laporan.index') }}" class="menu-link">
                         <i class="bi bi-graph-up"></i>
                         <span>Laporan</span>
                     </a>

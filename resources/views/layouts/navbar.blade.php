@@ -5,14 +5,7 @@
             <i class="bi bi-list"></i>
         </button>
         
-        <div class="search-box me-auto">
-            <div class="input-group">
-                <span class="input-group-text bg-transparent border-0">
-                    <i class="bi bi-search text-muted"></i>
-                </span>
-                <input type="text" class="form-control border-0" placeholder="Search now">
-            </div>
-        </div>
+
         
         <div class="navbar-nav flex-row align-items-center">
             <button class="btn btn-link me-3" id="themeToggle" title="Toggle Theme">

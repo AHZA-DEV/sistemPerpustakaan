@@ -13,6 +13,23 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    
+    // Buku routes
+    Route::resource('buku', \App\Http\Controllers\BukuController::class);
+    
+    // Kategori routes
+    Route::resource('kategori', \App\Http\Controllers\KategoriController::class);
+    
+    // Peminjaman routes
+    Route::resource('peminjaman', \App\Http\Controllers\PeminjamanController::class);
+    Route::patch('peminjaman/{peminjaman}/return', [\App\Http\Controllers\PeminjamanController::class, 'returnBook'])->name('peminjaman.return');
+    
+    // Users (Anggota) routes
+    Route::resource('users', \App\Http\Controllers\AnggotaController::class);
+    
+    // Laporan routes
+    Route::get('/laporan', [\App\Http\Controllers\LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/export', [\App\Http\Controllers\LaporanController::class, 'export'])->name('laporan.export');
 });
 
 // User routes
