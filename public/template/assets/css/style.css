@@ -81,7 +81,6 @@ body {
     height: 100vh;
     z-index: 1000;
     overflow-y: auto;
-    border-right: 1px solid var(--border-color);
 }
 
 .sidebar-header {
@@ -91,89 +90,42 @@ body {
 
 .sidebar-header span {
     color: var(--text-primary);
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.25rem;
 }
 
 .sidebar-menu {
     padding: 1rem 0;
 }
 
-.sidebar-menu ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
 .menu-item {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
 .menu-link {
     display: flex;
     align-items: center;
-    padding: 0.875rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     color: var(--sidebar-text);
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
-    font-size: 0.9rem;
-    font-weight: 500;
 }
 
 .menu-link:hover {
     color: var(--sidebar-active);
-    background-color: rgba(124, 58, 237, 0.08);
-    text-decoration: none;
+    background-color: rgba(124, 58, 237, 0.1);
 }
 
 .menu-item.active .menu-link {
     color: var(--sidebar-active);
-    background-color: rgba(124, 58, 237, 0.12);
+    background-color: rgba(124, 58, 237, 0.15);
     border-right: 3px solid var(--sidebar-active);
-    font-weight: 600;
 }
 
 .menu-link i {
-    width: 18px;
-    height: 18px;
-    margin-right: 1rem;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.menu-link span {
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Sidebar Footer */
-.sidebar-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem 0;
-    border-top: 1px solid var(--border-color);
-}
-
-.sidebar-footer .menu-item {
-    margin-bottom: 0;
-}
-
-.sidebar-footer .menu-link {
-    color: var(--danger-color);
-    font-weight: 500;
-}
-
-.sidebar-footer .menu-link:hover {
-    background-color: rgba(239, 68, 68, 0.08);
-    color: var(--danger-color);
+    width: 20px;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
 }
 
 .badge {
