@@ -89,9 +89,9 @@
     <!-- Logout Section -->
     <div class="sidebar-footer">
         <div class="menu-item">
-            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+            <form action="{{ route('logout') }}" method="POST" class="d-inline w-100">
                 @csrf
-                <button type="submit" class="menu-link btn btn-link text-start w-100" style="text-decoration: none;">
+                <button type="submit" class="menu-link btn btn-link text-start w-100 p-0 border-0" style="text-decoration: none; background: none;">
                     <i class="bi bi-box-arrow-right text-danger"></i>
                     <span class="text-danger">Logout</span>
                 </button>
