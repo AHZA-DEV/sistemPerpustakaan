@@ -4,50 +4,50 @@
         <!-- Sidebar Admin -->
         <div class="sidebar-header">
             <div class="d-flex align-items-center">
-                <i class="bi bi-shield-check text-primary me-2"></i>
-                <span class="fw-bold">Admin Panel</span>
+                <i class="bi bi-shield-check text-primary me-2" style="font-size: 1.1rem;"></i>
+                <span>Admin Panel</span>
             </div>
         </div>
         <div class="sidebar-menu">
-            <ul class="list-unstyled">
+            <ul>
                 <li class="menu-item {{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('admin.dashboard') }}" class="menu-link" data-title="Beranda">
+                    <a href="{{ route('admin.dashboard') }}" class="menu-link">
                         <i class="bi bi-house-door"></i>
                         <span>Beranda</span>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.users.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link" data-title="Kelola Anggota">
+                    <a href="#" class="menu-link">
                         <i class="bi bi-people"></i>
                         <span>Kelola Anggota</span>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.books.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link" data-title="Kelola Buku">
+                    <a href="#" class="menu-link">
                         <i class="bi bi-book"></i>
                         <span>Kelola Buku</span>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.loans.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link" data-title="Kelola Peminjaman">
+                    <a href="#" class="menu-link">
                         <i class="bi bi-journal-arrow-up"></i>
                         <span>Kelola Peminjaman</span>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.categories.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link" data-title="Kelola Kategori">
+                    <a href="#" class="menu-link">
                         <i class="bi bi-tags"></i>
                         <span>Kelola Kategori</span>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.reports.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link" data-title="Laporan">
+                    <a href="#" class="menu-link">
                         <i class="bi bi-graph-up"></i>
                         <span>Laporan</span>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('admin.settings.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link" data-title="Pengaturan">
+                    <a href="#" class="menu-link">
                         <i class="bi bi-gear"></i>
                         <span>Pengaturan</span>
                     </a>
