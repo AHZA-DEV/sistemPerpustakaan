@@ -26,42 +26,6 @@
         </div>
     </div>
 
-    <!-- Filter and Stats -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" placeholder="Cari penerbit..." id="searchInput">
-                                </div>
-                                <div class="col-md-4">
-                                    <select class="form-select" id="sortBy">
-                                        <option value="nama">Urutkan: Nama</option>
-                                        <option value="created_at">Urutkan: Terbaru</option>
-                                        <option value="buku_count">Urutkan: Jumlah Buku</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-end">
-                            <div class="d-flex gap-2 justify-content-end">
-                                <button class="btn btn-outline-success">
-                                    <i class="bi bi-download me-2"></i>Export Excel
-                                </button>
-                                <button class="btn btn-outline-danger">
-                                    <i class="bi bi-file-pdf me-2"></i>Export PDF
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Penerbit Stats -->
     <div class="row mb-4">
         <div class="col-lg-3 col-md-6 mb-3">
@@ -128,7 +92,7 @@
                     @endif
 
                     <div class="table-responsive">
-                        <table class="table table-hover" id="penerbitTable">
+                        <table class="table table-hover" id="DataTable">
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col">Nama Penerbit</th>

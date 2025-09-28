@@ -21,7 +21,7 @@
     </div>
 
     <!-- Filter and Search -->
-    <div class="row mb-4">
+    {{-- <div class="row mb-4">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Books Table -->
     <div class="row">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover" id="booksTable">
+                        <table class="table table-hover" id="DataTable">
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col">Cover</th>
@@ -117,16 +117,6 @@
                                                     data-bs-target="#bookModal" onclick="showBookDetails({{ $buku->buku_id }})">
                                                     <i class="bi bi-eye"></i>
                                                 </button>
-                                                @if($buku->stok > 0)
-                                                    <button class="btn btn-sm btn-success"
-                                                        onclick="borrowBook({{ $buku->buku_id }})">
-                                                        <i class="bi bi-bookmark-plus"></i>
-                                                    </button>
-                                                @else
-                                                    <button class="btn btn-sm btn-secondary" disabled>
-                                                        <i class="bi bi-bookmark-plus"></i>
-                                                    </button>
-                                                @endif
                                             </div>
                                         </td>
                                     </tr>

@@ -135,7 +135,7 @@
                             <h6 class="card-title mb-0">Informasi Peminjaman</h6>
                         </div>
                         <div class="card-body">
-                            <ul class="list-unstyled">
+                            <ul class="card-title list-unstyled">
                                 <li class="mb-2">
                                     <strong>ID Peminjaman:</strong><br>
                                     <span class="text-muted">{{ $peminjaman->peminjaman_id }}</span>

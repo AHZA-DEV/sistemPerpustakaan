@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Laporan - Admin')
@@ -34,7 +33,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form method="GET" action="{{ route('admin.laporan.index') }}">
+                    <form method="GET" action="{{ route('laporan.index') }}">
                         <div class="row align-items-center">
                             <div class="col-md-9">
                                 <div class="row">
@@ -187,7 +186,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-6 mb-4">
             <div class="card">
                 <div class="card-header">
@@ -268,29 +267,29 @@
                             </button>
                         </li>
                     </ul>
-                    
+
                     <div class="tab-content mt-3" id="reportTabContent">
                         <div class="tab-pane fade show active" id="daily" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Peminjaman Hari Ini</h6>
-                                        <h3 class="text-primary">{{ $daily_stats['loans'] ?? 0 }}</h3>
-                                        <small class="text-success">{{ $daily_stats['loans_change'] ?? 0 }} dari kemarin</small>
+                                        <h3 class="text-primary">{{ $dailyStats['loans'] ?? 0 }}</h3>
+                                        <small class="text-success">{{ $dailyStats['loans_change'] ?? 0 }} dari kemarin</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Pengembalian Hari Ini</h6>
-                                        <h3 class="text-success">{{ $daily_stats['returns'] ?? 0 }}</h3>
-                                        <small class="text-success">{{ $daily_stats['returns_change'] ?? 0 }} dari kemarin</small>
+                                        <h3 class="text-success">{{ $dailyStats['returns'] ?? 0 }}</h3>
+                                        <small class="text-success">{{ $dailyStats['returns_change'] ?? 0 }} dari kemarin</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Keterlambatan</h6>
-                                        <h3 class="text-danger">{{ $daily_stats['overdue'] ?? 0 }}</h3>
-                                        <small class="text-danger">{{ $daily_stats['overdue_change'] ?? 0 }} dari kemarin</small>
+                                        <h3 class="text-danger">{{ $dailyStats['overdue'] ?? 0 }}</h3>
+                                        <small class="text-danger">{{ $dailyStats['overdue_change'] ?? 0 }} dari kemarin</small>
                                     </div>
                                 </div>
                             </div>
@@ -300,21 +299,21 @@
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Peminjaman Bulan Ini</h6>
-                                        <h3 class="text-primary">{{ $monthly_stats['loans'] ?? 0 }}</h3>
-                                        <small class="text-success">{{ $monthly_stats['loans_growth'] ?? 0 }}% dari bulan lalu</small>
+                                        <h3 class="text-primary">{{ $monthlyStats['loans'] ?? 0 }}</h3>
+                                        <small class="text-success">{{ $monthlyStats['loans_growth'] ?? 0 }}% dari bulan lalu</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Pengembalian Bulan Ini</h6>
-                                        <h3 class="text-success">{{ $monthly_stats['returns'] ?? 0 }}</h3>
-                                        <small class="text-success">{{ $monthly_stats['returns_growth'] ?? 0 }}% dari bulan lalu</small>
+                                        <h3 class="text-success">{{ $monthlyStats['returns'] ?? 0 }}</h3>
+                                        <small class="text-success">{{ $monthlyStats['returns_growth'] ?? 0 }}% dari bulan lalu</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Total Denda</h6>
-                                        <h3 class="text-warning">Rp {{ number_format($monthly_stats['fines'] ?? 0, 0, ',', '.') }}</h3>
+                                        <h3 class="text-warning">Rp {{ number_format($monthlyStats['fines'] ?? 0, 0, ',', '.') }}</h3>
                                         <small class="text-info">Total bulan ini</small>
                                     </div>
                                 </div>
@@ -325,21 +324,21 @@
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Peminjaman Tahun Ini</h6>
-                                        <h3 class="text-primary">{{ $yearly_stats['loans'] ?? 0 }}</h3>
-                                        <small class="text-success">{{ $yearly_stats['loans_growth'] ?? 0 }}% dari tahun lalu</small>
+                                        <h3 class="text-primary">{{ $yearlyStats['loans'] ?? 0 }}</h3>
+                                        <small class="text-success">{{ $yearlyStats['loans_growth'] ?? 0 }}% dari tahun lalu</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Pengembalian Tahun Ini</h6>
-                                        <h3 class="text-success">{{ $yearly_stats['returns'] ?? 0 }}</h3>
-                                        <small class="text-success">{{ $yearly_stats['returns_growth'] ?? 0 }}% dari tahun lalu</small>
+                                        <h3 class="text-success">{{ $yearlyStats['returns'] ?? 0 }}</h3>
+                                        <small class="text-success">{{ $yearlyStats['returns_growth'] ?? 0 }}% dari tahun lalu</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="border rounded p-3 mb-3">
                                         <h6 class="text-muted">Total Denda</h6>
-                                        <h3 class="text-warning">Rp {{ number_format($yearly_stats['fines'] ?? 0, 0, ',', '.') }}</h3>
+                                        <h3 class="text-warning">Rp {{ number_format($yearlyStats['fines'] ?? 0, 0, ',', '.') }}</h3>
                                         <small class="text-info">Total tahun ini</small>
                                     </div>
                                 </div>
@@ -360,7 +359,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('admin.laporan.export') }}" method="GET">
+                    <form action="{{ route('laporan.export') }}" method="GET">
                         <div class="mb-3">
                             <label for="reportType" class="form-label">Jenis Laporan *</label>
                             <select class="form-select" name="type" id="reportType" required>
@@ -413,65 +412,5 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
-// Loan Chart
-const loanCtx = document.getElementById('loanChart').getContext('2d');
-const loanChart = new Chart(loanCtx, {
-    type: 'line',
-    data: {
-        labels: @json($chart_data['labels'] ?? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']),
-        datasets: [{
-            label: 'Peminjaman',
-            data: @json($chart_data['loans'] ?? [45, 52, 48, 61, 55, 67, 73, 69, 78, 81, 76, 85]),
-            borderColor: 'rgb(75, 192, 192)',
-            backgroundColor: 'rgba(75, 192, 192, 0.1)',
-            tension: 0.1
-        }, {
-            label: 'Pengembalian',
-            data: @json($chart_data['returns'] ?? [42, 48, 45, 58, 52, 63, 68, 66, 74, 77, 73, 82]),
-            borderColor: 'rgb(54, 162, 235)',
-            backgroundColor: 'rgba(54, 162, 235, 0.1)',
-            tension: 0.1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
 
-// Category Chart
-const categoryCtx = document.getElementById('categoryChart').getContext('2d');
-const categoryChart = new Chart(categoryCtx, {
-    type: 'doughnut',
-    data: {
-        labels: @json($category_chart['labels'] ?? ['Teknologi', 'Fiksi', 'Sains', 'Sejarah', 'Ekonomi']),
-        datasets: [{
-            data: @json($category_chart['data'] ?? [35, 25, 20, 12, 8]),
-            backgroundColor: [
-                '#007bff',
-                '#28a745',
-                '#ffc107',
-                '#dc3545',
-                '#6f42c1'
-            ],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'bottom'
-            }
-        }
-    }
-});
-</script>
 @endpush

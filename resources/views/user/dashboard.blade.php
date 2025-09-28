@@ -12,25 +12,6 @@
                     <div class="col-md-12">
                         <h2 class="mb-2">Selamat Datang, {{ Session::get('user_name') }}</h2>
                         <p class="text-muted">Dashboard Perpustakaan Digital untuk Anggota. Jelajahi koleksi buku dan kelola peminjaman Anda.</p>
-                        
-                        <!-- Quick Actions -->
-                        <div class="row mt-3">
-                            <div class="col-md-4 mb-2">
-                                <a href="{{ route('user.buku.index') }}" class="btn btn-primary w-100">
-                                    <i class="bi bi-book me-2"></i>Jelajahi Buku
-                                </a>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <a href="{{ route('user.loans.index') }}" class="btn btn-outline-primary w-100">
-                                    <i class="bi bi-journal-text me-2"></i>Peminjaman Saya
-                                </a>
-                            </div>
-                            <div class="col-md-4 mb-2">
-                                <a href="{{ route('user.buku.index') }}" class="btn btn-outline-success w-100">
-                                    <i class="bi bi-search me-2"></i>Cari Buku
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -58,7 +39,7 @@
                             <div class="d-flex align-items-center mb-3">
                                 <img src="https://via.placeholder.com/50x65/007bff/ffffff?text=Book" alt="Book Cover" class="me-3 rounded" style="width: 40px; height: 52px;">
                                 <div class="flex-grow-1">
-                                    <div class="fw-bold">{{ Str::limit($peminjaman->buku->judul, 20) }}</div>
+                                    <div class="fw-bold card-title">{{ Str::limit($peminjaman->buku->judul, 20) }}</div>
                                     <small class="text-muted">Jatuh tempo: {{ $peminjaman->tanggal_kembali ? \Carbon\Carbon::parse($peminjaman->tanggal_kembali)->format('d M Y') : 'N/A' }}</small>
                                 </div>
                                 @if($peminjaman->isOverdue())
@@ -134,50 +115,4 @@
         </div>
     </div>
 
-    <!-- Recent Books -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">
-                            <i class="bi bi-star me-2"></i>Buku Terbaru
-                        </h5>
-                        <a href="{{ route('user.buku.index') }}" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    @php
-                        $recentBooks = \App\Models\Buku::with(['authors', 'penerbit'])
-                                     ->where('stok', '>', 0)
-                                     ->latest()
-                                     ->take(4)
-                                     ->get();
-                    @endphp
-                    
-                    <div class="row">
-                        @forelse($recentBooks as $buku)
-                            <div class="col-lg-3 col-md-6 mb-3">
-                                <div class="card h-100">
-                                    <div class="card-body text-center">
-                                        <img src="https://via.placeholder.com/100x130/{{ collect(['007bff', '28a745', 'dc3545', '6366f1', 'f59e0b'])->random() }}/ffffff?text=Book" 
-                                             alt="Book Cover" class="mb-3 rounded" style="width: 80px; height: 104px;">
-                                        <h6 class="card-title">{{ Str::limit($buku->judul, 20) }}</h6>
-                                        <p class="card-text text-muted small">{{ $buku->authors->pluck('nama_author')->join(', ') }}</p>
-                                        <span class="badge bg-{{ $buku->stok > 5 ? 'success' : ($buku->stok > 0 ? 'warning' : 'danger') }}">
-                                            {{ $buku->stok > 0 ? 'Tersedia (' . $buku->stok . ')' : 'Tidak Tersedia' }}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <div class="col-12 text-center">
-                                <p class="text-muted">Belum ada buku tersedia</p>
-                            </div>
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

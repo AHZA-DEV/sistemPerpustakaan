@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Tambah Kategori - Admin')
@@ -13,7 +12,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.kategori.index') }}">Kelola Kategori</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.kategori.index') }}">Kelola Kategori</a>
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">Tambah Kategori</li>
                         </ol>
                     </nav>
@@ -24,7 +24,7 @@
 
     <!-- Form Section -->
     <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
@@ -34,12 +34,13 @@
                 <div class="card-body">
                     <form action="{{ route('admin.kategori.store') }}" method="POST">
                         @csrf
-                        
+
                         <div class="mb-3">
-                            <label for="nama_kategori" class="form-label">Nama Kategori <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror" 
-                                   id="nama_kategori" name="nama_kategori" value="{{ old('nama_kategori') }}" 
-                                   placeholder="Contoh: Teknologi, Fiksi, Sains..." required>
+                            <label for="nama_kategori" class="form-label">Nama Kategori <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('nama_kategori') is-invalid @enderror"
+                                id="nama_kategori" name="nama_kategori" value="{{ old('nama_kategori') }}"
+                                placeholder="Contoh: Teknologi, Fiksi, Sains..." required>
                             @error('nama_kategori')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -48,13 +49,14 @@
 
                         <div class="mb-4">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" 
-                                      id="deskripsi" name="deskripsi" rows="4" 
-                                      placeholder="Masukkan deskripsi kategori...">{{ old('deskripsi') }}</textarea>
+                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi"
+                                name="deskripsi" rows="4"
+                                placeholder="Masukkan deskripsi kategori...">{{ old('deskripsi') }}</textarea>
                             @error('deskripsi')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <small class="form-text text-muted">Jelaskan secara singkat tentang kategori ini (opsional)</small>
+                            <small class="form-text text-muted">Jelaskan secara singkat tentang kategori ini
+                                (opsional)</small>
                         </div>
 
                         <div class="d-flex justify-content-end gap-3">
@@ -69,11 +71,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Info Card -->
-    <div class="row mt-4">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-md-4">
             <div class="card border-info">
                 <div class="card-body">
                     <h6 class="card-title text-info">

@@ -16,8 +16,7 @@
                     </div>
                     <div class="col-md-6 text-end">
                         <div class="dropdown">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown">
+                            <button class="btn btn-outline-secondary" type="button">
                                 <i class="bi bi-calendar3 me-2"></i>Hari ini ({{ date('d M Y') }})
                             </button>
                         </div>
@@ -153,7 +152,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-3">
-                            <a href="{{ route('admin.laporan.index') }}" class="btn btn-warning w-100">
+                            <a href="{{ route('laporan.index') }}" class="btn btn-warning w-100">
                                 <i class="bi bi-graph-up me-2"></i>Lihat Laporan
                             </a>
                         </div>

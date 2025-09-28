@@ -54,7 +54,7 @@
                     @endif
 
                     <div class="table-responsive">
-                        <table class="table table-striped" id="booksTable">
+                        <table class="table table-striped" id="DataTable">
                             <thead>
                                 <tr>
                                     <th>Judul</th>

@@ -60,7 +60,6 @@
                                     <th scope="col">Tanggal Pinjam</th>
                                     <th scope="col">Tanggal Kembali</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Denda</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -101,13 +100,6 @@
                                             @if($peminjaman->tanggal_dikembalikan)
                                                 <br><small class="text-muted">{{ $peminjaman->tanggal_dikembalikan->format('d M Y') }}</small>
                                             @endif
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if($peminjaman->denda > 0)
-                                            <span class="text-danger fw-bold">Rp {{ number_format($peminjaman->denda, 0, ',', '.') }}</span>
-                                        @else
-                                            <span class="text-muted">-</span>
                                         @endif
                                     </td>
                                     <td>
@@ -155,42 +147,6 @@
                                 @endforelse
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Statistics Cards -->
-            <div class="row mt-4">
-                <div class="col-md-3">
-                    <div class="card bg-primary text-white">
-                        <div class="card-body">
-                            <h5 class="card-title">Total Peminjaman</h5>
-                            <h2 class="mb-0">{{ $peminjamans->count() }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card bg-warning text-white">
-                        <div class="card-body">
-                            <h5 class="card-title">Sedang Dipinjam</h5>
-                            <h2 class="mb-0">{{ $peminjamans->where('status', 'DIPINJAM')->count() }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card bg-success text-white">
-                        <div class="card-body">
-                            <h5 class="card-title">Sudah Dikembalikan</h5>
-                            <h2 class="mb-0">{{ $peminjamans->where('status', 'DIKEMBALIKAN')->count() }}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card bg-danger text-white">
-                        <div class="card-body">
-                            <h5 class="card-title">Terlambat</h5>
-                            <h2 class="mb-0">{{ $peminjamans->filter(function($p) { return $p->isOverdue() && $p->status === 'DIPINJAM'; })->count() }}</h2>
-                        </div>
                     </div>
                 </div>
             </div>

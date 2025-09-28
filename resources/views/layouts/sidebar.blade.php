@@ -52,7 +52,7 @@
                         </a>
                     </li>
                 <li class="menu-item {{ Request::routeIs('admin.laporan.*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.laporan.index') }}" class="menu-link">
+                    <a href="{{ route('laporan.index') }}" class="menu-link">
                         <i class="bi bi-graph-up"></i>
                         <span>Laporan</span>
                     </a>

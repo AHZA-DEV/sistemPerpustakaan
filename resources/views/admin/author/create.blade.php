@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Tambah Author - Admin')
@@ -24,7 +23,7 @@
 
     <!-- Form Section -->
     <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
@@ -34,12 +33,13 @@
                 <div class="card-body">
                     <form action="{{ route('admin.author.store') }}" method="POST">
                         @csrf
-                        
+
                         <div class="mb-3">
-                            <label for="nama_author" class="form-label">Nama Author <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control @error('nama_author') is-invalid @enderror" 
-                                   id="nama_author" name="nama_author" value="{{ old('nama_author') }}" 
-                                   placeholder="Contoh: Andrea Hirata, Tere Liye, Pramoedya..." required>
+                            <label for="nama_author" class="form-label">Nama Author <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('nama_author') is-invalid @enderror"
+                                id="nama_author" name="nama_author" value="{{ old('nama_author') }}"
+                                placeholder="Contoh: Andrea Hirata, Tere Liye, Pramoedya..." required>
                             @error('nama_author')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -48,9 +48,8 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                                   id="email" name="email" value="{{ old('email') }}" 
-                                   placeholder="contoh@email.com">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                                name="email" value="{{ old('email') }}" placeholder="contoh@email.com">
                             @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -59,9 +58,9 @@
 
                         <div class="mb-4">
                             <label for="biografi" class="form-label">Biografi</label>
-                            <textarea class="form-control @error('biografi') is-invalid @enderror" 
-                                      id="biografi" name="biografi" rows="5" 
-                                      placeholder="Masukkan biografi singkat author...">{{ old('biografi') }}</textarea>
+                            <textarea class="form-control @error('biografi') is-invalid @enderror" id="biografi"
+                                name="biografi" rows="5"
+                                placeholder="Masukkan biografi singkat author...">{{ old('biografi') }}</textarea>
                             @error('biografi')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -80,11 +79,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Info Card -->
-    <div class="row mt-4">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-md-4">
             <div class="card border-info">
                 <div class="card-body">
                     <h6 class="card-title text-info">
@@ -100,5 +95,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Info Card -->
+    <div class="row mt-4">
+
     </div>
 @endsection

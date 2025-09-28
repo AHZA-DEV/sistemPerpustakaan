@@ -66,33 +66,33 @@ class LaporanController extends Controller
 
         // Statistik utama
         $stats = $this->getMainStats($startDate, $endDate);
-        
+
         // Data untuk chart
         $chartData = $this->getChartData($startDate, $endDate, $periode);
-        
+
         // Buku populer
         $popularBooks = $this->getPopularBooks($startDate, $endDate);
-        
+
         // Member aktif
         $activeMembers = $this->getActiveMembers($startDate, $endDate);
-        
+
         // Statistik detail per periode
         $dailyStats = $this->getDailyStats();
         $monthlyStats = $this->getMonthlyStats();
         $yearlyStats = $this->getYearlyStats();
-        
+
         // Data untuk chart kategori
         $categoryChart = $this->getCategoryChartData();
 
         return view('admin.laporan.index', compact(
             'stats',
-            'chart_data',
-            'popular_books',
-            'active_members',
-            'daily_stats',
-            'monthly_stats',
-            'yearly_stats',
-            'category_chart'
+            'chartData',
+            'popularBooks',
+            'activeMembers',
+            'dailyStats',
+            'monthlyStats',
+            'yearlyStats',
+            'categoryChart'
         ));
     }
 
@@ -133,13 +133,13 @@ class LaporanController extends Controller
             for ($i = 0; $i < 12; $i++) {
                 $month = Carbon::now()->startOfYear()->addMonths($i);
                 $labels[] = $month->format('M');
-                
+
                 $loans = Peminjaman::whereMonth('tanggal_pinjam', $month->month)
                                    ->whereYear('tanggal_pinjam', $month->year)->count();
                 $returns = Peminjaman::whereMonth('tanggal_kembali', $month->month)
                                      ->whereYear('tanggal_kembali', $month->year)
                                      ->whereNotNull('tanggal_kembali')->count();
-                
+
                 $loansData[] = $loans;
                 $returnsData[] = $returns;
             }
@@ -148,14 +148,14 @@ class LaporanController extends Controller
             $current = $startDate->copy();
             while ($current->lte($endDate)) {
                 $labels[] = $current->format('d M');
-                
+
                 $loans = Peminjaman::whereDate('tanggal_pinjam', $current)->count();
                 $returns = Peminjaman::whereDate('tanggal_kembali', $current)
                                      ->whereNotNull('tanggal_kembali')->count();
-                
+
                 $loansData[] = $loans;
                 $returnsData[] = $returns;
-                
+
                 $current->addDay();
             }
         }

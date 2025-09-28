@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <!-- Filter and Stats -->
+            {{-- <!-- Filter and Stats -->
             <div class="row mb-4">
                 <div class="col-12">
                     <div class="card">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Members Table -->
             <div class="row">
@@ -91,7 +91,7 @@
                             @endif
 
                             <div class="table-responsive">
-                                <table class="table table-hover" id="usersTable">
+                                <table class="table table-hover" id="DataTable">
                                     <thead class="table-light">
                                         <tr>
                                             <th scope="col">NISN/NIM</th>
@@ -186,12 +186,4 @@
     </div>
 </div>
 
-@push('scripts')
-<script>
-    // Simple table filtering
-    document.getElementById('statusFilter').addEventListener('change', function() {
-        // Add filtering logic here if needed
-    });
-</script>
-@endpush
 @endsection

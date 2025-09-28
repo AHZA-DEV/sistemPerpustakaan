@@ -17,11 +17,6 @@
                         </ol>
                     </nav>
                 </div>
-                <div>
-                    <a href="{{ route('user.buku.index') }}" class="btn btn-primary">
-                        <i class="bi bi-plus-circle me-2"></i>Pinjam Buku Baru
-                    </a>
-                </div>
             </div>
         </div>
     </div>

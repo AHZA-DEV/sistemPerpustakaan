@@ -17,13 +17,16 @@ class DatabaseSeeder extends Seeder
      */
    public function run()
     {
-        // Call individual seeders
+        // Call individual seeders in the correct order
         $this->call([
             AdminSeeder::class,
             AnggotaSeeder::class,
             KategoriSeeder::class,
             AuthorSeeder::class,
             PenerbitSeeder::class,
+            BukuSeeder::class,
+            BukuAuthorSeeder::class,
+            PeminjamanSeeder::class,
         ]);
     }
 }

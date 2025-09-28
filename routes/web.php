@@ -14,12 +14,12 @@ use App\Http\Controllers\UserBukuController; // Import UserBukuController
 use App\Http\Controllers\UserPeminjamanController; // Import UserPeminjamanController
 
 // Login routes
-Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->name('login.post')->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Admin routes
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth.admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     // Buku routes
@@ -56,17 +56,31 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Users (Anggota) routes
     Route::resource('users', AnggotaController::class);
 
-    // Laporan routes
+    // Profile routes
+    Route::get('/profile', function() {
+        return view('admin.profile');
+    })->name('profile');
+    Route::put('/profile', [AdminController::class, 'updateProfile'])->name('profile.update');
+});
+
+// Laporan routes (accessible by admin)
+Route::prefix('admin')->middleware('auth.admin')->group(function () {
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('/laporan/export', [LaporanController::class, 'export'])->name('laporan.export');
 });
 
 // User routes
-Route::prefix('user')->name('user.')->group(function () {
+Route::prefix('user')->name('user.')->middleware('auth.user')->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
     Route::get('/books', [UserBukuController::class, 'index'])->name('buku.index');
     Route::get('/books/{id}', [UserBukuController::class, 'show'])->name('buku.show');
     Route::get('/books/{id}/detail', [UserBukuController::class, 'detail'])->name('buku.detail');
     Route::post('/books/borrow', [UserPeminjamanController::class, 'store'])->name('buku.borrow');
     Route::get('/loans', [UserPeminjamanController::class, 'index'])->name('loans.index');
+
+    // Profile routes
+    Route::get('/profile', function() {
+        return view('user.profile');
+    })->name('profile');
+    Route::put('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
 });
