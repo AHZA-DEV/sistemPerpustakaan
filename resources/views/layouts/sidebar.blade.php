@@ -39,6 +39,18 @@
                         <span>Kelola Kategori</span>
                     </a>
                 </li>
+                <li class="menu-item {{ Request::routeIs('admin.author.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.author.index') }}" class="menu-link">
+                        <i class="bi bi-person"></i>
+                        <span>Kelola Author</span>
+                    </a>
+                </li>
+                <li class="menu-item {{ request()->routeIs('admin.penerbit.*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.penerbit.index') }}" class="menu-link">
+                            <i class="bi bi-building"></i>
+                            <span>Kelola Penerbit</span>
+                        </a>
+                    </li>
                 <li class="menu-item {{ Request::routeIs('admin.laporan.*') ? 'active' : '' }}">
                     <a href="{{ route('admin.laporan.index') }}" class="menu-link">
                         <i class="bi bi-graph-up"></i>
@@ -78,14 +90,14 @@
                         <span>Beranda</span>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::routeIs('user.books.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ Request::routeIs('user.buku.*') ? 'active' : '' }}">
+                    <a href="{{ route('user.buku.index') }}" class="menu-link">
                         <i class="bi bi-book"></i>
                         <span>Semua Buku</span>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('user.loans.*') ? 'active' : '' }}">
-                    <a href="#" class="menu-link">
+                    <a href="{{ route('user.loans.index') }}" class="menu-link">
                         <i class="bi bi-journal-text"></i>
                         <span>Peminjaman Saya</span>
                     </a>
